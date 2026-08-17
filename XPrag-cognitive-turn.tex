@@ -8,6 +8,16 @@
 
 \usepackage[margin=2.5cm]{geometry}
 
+\usepackage{mdframed}
+\newmdenv[
+  topline=false,
+  bottomline=false,
+  rightline=false,
+  linecolor=gray,
+  linewidth=1pt,
+  skipabove=\topsep,
+  skipbelow=\topsep
+]{draftytext}
 
 \bibliography{~/Desktop/icloud/MyRefGlobal.bib}
 
@@ -27,32 +37,37 @@
 \section{Experimental pragmatics and computational modeling}
 
 The linguistic subfield of pragmatics studies how language is used for efficient communication and how communicated meaning is modulated, if not created, in a particular context by systematic, context-general patterns of use.
-Its origins lie in the Philosophy of Language, in particular the analytical tradition of philosophy, in work on topics like \emph{speech-acts} \citep{Austin1962:How-to-do-Thing,Searle1969:Speech-Acts:-An}, \emph{conversational implicature} \citep{Grice1975:Logic-and-Conve}, or \emph{presupposition} \citep{Stalnaker1973:Presupposition,Karttunen1973:Presuppositions}.
+Its origins lie in the philosophy of language, in particular the analytical tradition of philosophy, in work on topics like \emph{speech-acts} \citep{Austin1962:How-to-do-Thing,Searle1969:Speech-Acts:-An}, \emph{conversational implicature} \citep{Grice1975:Logic-and-Conve}, or \emph{presupposition} \citep{Stalnaker1973:Presupposition,Karttunen1973:Presuppositions}.
 Much early work on these topics remained invested in a logical-formal approach \citep{Gazdar1979:Pragmatics:-Imp,Kadmon2001:Formal-Pragmati}, but the early 2000's brought a deep and empowering incision: a widely adopted and ultimately very successful \emph{experimental turn} \citep{NoveckSperber2004:Experimental-Pr,Noveck2018:Experimental-Pr}, in parallel to similar empirical re-orientations in other hitherto very analytically minded subfields of linguistics like formal syntax \citep{Sprouse2007:A-program-for-e,Sprouse2023:The-Oxf-Handb-Exp-Syntax} and formal semantics \citep{MeibauerSteinbach2011:Experimental-Pr,CumminsKatsos2019:The-Oxford-Hand}.
 
-\begin{itemize}
-  \item computational modeling
-  \item computational pragmatics (unrelated to XPrag) existed -> explains stylized facts
-  \item modeling for experimental pragmatics -> directly engage with the empirical data
-\end{itemize}
+The experimental turn in pragmatics was accompanied by formal and computational work from the start, with two main strands of approaches emerging at opposite ends of a spectrum.
+On one end of the spectrum, \textit{grammaticalism} focuses on language as an abstract, computationally encapsulated system \mf{refs}.
+On the other end, \textit{probabilistic pragmatics} seeks explanations of pragmatic phenomena in terms linguistic communication as a special form of social interaction, also taking aspects of domain-general cognition of language users into account \mf{refs}.
+Figure~\ref{fig:genealogy-probprag} gives a coarse-grained overview of the development of, in particular, probabilistic pragmatics as the culmination point of research that combined aspects of individual cognition, such as bounded rationality \mf{refs}, and functional explanations based on optimal information transfer in communication \mf{refs}.
+While experimental data can mitigate between alternative explanations proposed in the grammaticalist tradition \mf{refs}, the more socio-cognitive approach adopted by probabilistic pragmatics is much better suited to incorporate \textit{both} linguistic theory \textit{and} aspects of general cognition (such as perception, adaptation and decision-making) into a unified computational model of the \emph{data-generating process}, i.e., the (cognitive) processes by which individual data observations in an experiment come about.
+
+\mf{continue with something like: seen in this light computational modeling can serve a bridging function; one direction done so far, the other still needs work}
+
+\begin{draftytext}
+  Section \mf{XYZ} elaborates on this idea of cognitive models acting as theory-driven statistical models for the observation-generating process.
+  It covers some main lessons learned from probabilistic pragmatic modeling of experimental data, and points to key open questions for the future.
+\end{draftytext}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\textwidth]{pics/JXPRAG-visuals-ProbPrag-dev.png}
+  \caption{
+    Genealogy of probabilistic pragmatics.
+    \mf{describe what's pictured here (if you keep it; maybe make this figure and the text part of an InfoBox?)}
+  }
+  \label{fig:genealogy-probprag}
+\end{figure}
+
+
+
+\bigskip
 
 \begin{itemize}
-  \item modeling in general:
-  \begin{itemize}
-    \item all models are wrong; some are useful
-    \item even if all models are wrong, we should prefer models that are less wrong in the sense of Isaak
-    \item so how our (less) wrong models useful?
-    \item while for data: garbage in — garbage out
-    \item for models: more assumptions in — more conclusions out
-    \begin{itemize}
-      \item e.g., causal modeling
-      \item reasonable assumptions in; interesting conclusions out
-    \end{itemize}
-  \end{itemize}
-  \begin{itemize}
-    \item all models contain some assumptions about the \textbf{data-generating process}
-    \item more assumptions about the nature of that process → more information gained from the data
-  \end{itemize}
   \item two specific contributions of explicit (computational / formal) modeling in XPrag:
   \begin{enumerate}
     \item \textbf{bridge to linguistic theory:} (a successful past)
@@ -71,6 +86,37 @@ Much early work on these topics remained invested in a logical-formal approach \
 
 \newpage
 
+\section{Theory-driven probabilistic modeling}
+\label{sec:theory-driv-prob}
+
+\begin{itemize}
+  \item modeling in general:
+  \begin{itemize}
+    \item all models are wrong; some are useful
+    \item even if all models are wrong, we should prefer models that are less wrong in the sense of Isaak
+    \item so how our (less) wrong models useful?
+    \item while for data: garbage in — garbage out
+    \item for models: more assumptions in — more conclusions out
+    \begin{itemize}
+      \item e.g., causal modeling
+      \item reasonable assumptions in; interesting conclusions out
+    \end{itemize}
+  \end{itemize}
+  \begin{itemize}
+    \item all models contain some assumptions about the \textbf{data-generating process}
+    \item more assumptions about the nature of that process → more information gained from the data
+  \end{itemize}
+
+\end{itemize}
+
+\newpage
+
+\section{Towards the cognitive turn}
+\label{sec:towards-cogn-turn}
+
+
+
+\newpage
 
 \printbibliography
 
