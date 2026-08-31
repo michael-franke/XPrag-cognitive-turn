@@ -140,25 +140,54 @@ However, from a resource-rational perspective on efficient cognitive processing 
 \section{Theory-driven probabilistic modeling}
 \label{sec:theory-driv-prob}
 
-\begin{itemize}
-  \item modeling in general:
-  \begin{itemize}
-    \item all models are wrong; some are useful
-    \item even if all models are wrong, we should prefer models that are less wrong in the sense of Isaak
-    \item so how our (less) wrong models useful?
-    \item while for data: garbage in — garbage out
-    \item for models: more assumptions in — more conclusions out
-    \begin{itemize}
-      \item e.g., causal modeling
-      \item reasonable assumptions in; interesting conclusions out
-    \end{itemize}
-  \end{itemize}
-  \begin{itemize}
-    \item all models contain some assumptions about the \textbf{data-generating process}
-    \item more assumptions about the nature of that process → more information gained from the data
-  \end{itemize}
+A now-familiar starting point for any discussion of formal modeling is Box's dictum that all models are wrong, but some are useful \citep{Box1979:Robustness-in-t}.
+Yet acknowledging that no model can be strictly true does not mean that all models are wrong to the same degree.
+Following Isaac Asimov's (\citeyear{Asimov1988:The-Relativity-}) observation that wrongness itself admits of degrees—that the belief the Earth is a sphere is less wrong than the belief that it is flat, even though neither is exactly correct—we should prefer models that are less wrong over those that are more so.
+This raises the natural question of what makes such (less) wrong models useful in the first place.
 
+Just as the familiar principle ``garbage in, garbage out'' governs the relationship between data quality and the conclusions we can draw from it, an analogous principle governs models themselves: the more (reasonable) assumptions we build in, the more we can conclude from the data.
+Causal modeling offers a clear illustration of this logic—by committing to a set of reasonable structural assumptions about how variables relate to one another, we are able to extract substantive, interesting conclusions that would otherwise remain hidden in purely correlational analyses \citep{Pearl2009:Causal-inferenc}.
+
+Central to this view is the idea that every model encodes, implicitly or explicitly, a set of assumptions about the data-generating process that produced the observations under study.
+The richer and more explicit these assumptions are about the underlying process, the more information we are able to extract from the data itself.
+In other words, the assumptions a model makes are not a liability to be minimized but a resource to be used purposefully: they determine how much of the structure latent in the data-generating process can be recovered, and thus how much genuine insight a cognitive model of language can ultimately offer.
+
+One example of latent-parameter inference through a well-reasoned model, which highlights the usefulness for probabilistic pragmatic models for the interpretation of experimental data, is \emph{latent semantic inference}.
+The vague quantifier \emph{many} can convey quite different absolute numbers in sentences like in  (\ref{bsp:many}), arguably because its denotation is sensitive to general expectations about the relevant quantities, such as the number of shoes owned, number of pages read.
+%
+\begin{exe}
+  \label{bsp:many}
+  \ex Jake owns many pairs of shoes.
+  \ex Joe read many pages in his book last week.
+\end{exe}
+%
+\citet{FernandoKamp1996:Expecting-Many} hypothesized that, despite this context-dependence, there is still a stable semantic core meaning based on an absolute threshold on the cumulative distribution of the expectation about the relevant quantity.
+Without going into detail of this particular case study \citep{FrankeScholler2016:Semantic-values}, the general recipe for latent semantic inference through a pragmatics model is that we assume that there is a latent parameter $\theta$, which determines the semantic meaning of an expression, which in turn influences the speaker's inclination to respond in particular ways to tasks posed during a suitable experiment. \mf{insert picture}
+So, the speaker's behavior $\pi_{S}(a \mid \theta)$ in the experimental task should be conceived of as a function of that hidden semantic parameter.
+From the point of the view of the experimenter, we can then take the empirically observed data, use Bayes rule much like the pragmatic listener model does, and backwards-infer likely values of $\theta$ based on the experimental data.
+The more independent justification there is---from theoretical considerations or other experimental work---to assume that the functional form of the stipulated policy is (roughly) correct, the more we can use the model as a lens to learn about theoretically meaningful parameters.
+
+This is the power that probabilistic pragmatic modeling can unfold if used as part of the data-analytical pipeline: a theoretically informed model can become the statistical model itself.
+Multiple models, differing in meaningful theoretical distinctions can then be stringently contrasted through statistical model comparison.
+Using this approach, \citet{Tielvan-TielFranke2021:Probabilistic-p} compared models of quantifier use to distinguish between a standard logical semantics based on thresholds \mf{ref} and a semantics in terms of distance to a prototype \mf{refs}, using a probabilistic pragmatic speaker policy based on informativity-sensitive utilities as a model of the data-generating process with latent parameters inferred for either thresholds or prototypes of quantifiers.
+Similar methods have been used in the domain of quantifiers \citep[][]{CarcassiSzymanik2021:An-alternatives,SortNoopTielvan-TielFranke2022:Meaning-and-use,TielFranke2026:Bespoke-Probabi},
+vague gradable adjectives
+\citet{Cremers2022:A-Rational-Spee} uses a complex RSA-style model for Bayesian parameter inference for vague gradable adjectives,
+generics \citet{Tessler2019:The-Language-of},
+and general (syntactic) ambiguity \citep{FrankeBergen2020:Theory-driven-s},
+different models of referential reasoning \citep{QingFranke2013:Variations-on-a,FrankeDegen2015:Reasoning-in-Re},
+or intensifiers \citep{SchollerFranke2017:Surprisingly:-M,Zhao2019:Interpreting-In}.
+\mf{more and better refs? Anton Benz, Zhao?}
+
+\bigskip
+
+\begin{itemize}
+  \item problem of link functions
 \end{itemize}
+
+
+
+
 
 \newpage
 
