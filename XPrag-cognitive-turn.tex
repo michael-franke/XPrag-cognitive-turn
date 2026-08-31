@@ -21,6 +21,7 @@
 
 \bibliography{~/Desktop/icloud/MyRefGlobal.bib}
 
+\newcommand{\real}{\acro{real}}
 
 \title{
   The cognitive turn in experimental pragmatics: \\
@@ -79,15 +80,27 @@ Section \mf{XYZ} then focuses on a high-level case study, namely probabilistic r
 
 Notable early probabilistic approaches to pragmatics include pioneering work by \citet{Merin1994:Algebra-of-Elem,MerinInfoRelSocialDecisionmaking1999}, \citet{Zeevat2014:Language-Produc}, and \citet{Russell2012:Probabilistic-R}.
 A particularly prominent style of probabilistic modeling in pragmatics is the Rational Speech Act framework \citep{FrankGoodman2012:Predicting-Prag,ScontrasTessler2021:A-practical-int,Degen2023:The-Rational-Sp}, the basic set-up of which was anticipated in decision-theoretic work by Anton Benz \citep{BenzUtil&RelAns2005,BenzvanRooijOptimalAssertions2007}.
-What unites probabilistic approaches to pragmatics is, arguably, the idea that pragmatic interpretation is a form of inverse, or abductive, reasoning \citep{HobbsStickel1993:Interpretation-,BuntBlack2000:Abduction-Belie,FrankeJager2015:Probabilistic-p}: since it is natural to assume that a speaker's linguistic behavior (their choice of words, the fact that they spoke in the first place, their intonation, or speech-accompanying gesture, etc.) is at least partly determined by a latent, i.e., unobservable, mental state of the speaker, the main task of pragmatic interpretation is to reason backwards, as it were, about how relatively likely or unlikely different conceivable causes of the speaker's behavior are.
+Early contributions in the evolving RSA tradition looked at
+implicature \citep{BergenLevy2012:Thats-what-she-,GoodmanStuhlmuller2013:Knowledge-and-I},
+stylized reference games \citep{FrankGoodman2012:Predicting-Prag,DegenFranke2012:Optimal-Reasoni,DegenFranke2013:Cost-Based-Prag}
+, or
+the place of probabilistic notions in semantics and pragmatics in general \citep{GoodmanLassiter2014:Probabilistic-S}.
 
-This type of reasoning is naturally modeled by Bayesian probabilistic inference. Given a probabilistic speaker policy $\pi(a \mid t)$, which specifies how likely a speaker is to perform an action $a \in A$ when in state $t \in T$, together with a prior distribution over how likely different states $t$ are, the normatively correct way of updating these prior beliefs is given by Bayes' rule as follows:
+What unites probabilistic approaches to pragmatics is a focus on explaining pragmatic phenomena in terms of what agents \emph{do} in linguistic communication.
+More concretely, following the general tenets of Gricean \citet{Grice1975:Logic-and-Conve} and Post-Gricean pragmatics \citep{SperberWilson1995:Relevance:-Comm,WilsonSperber2004:Relevance-Theor,BlutnerZeevat2004:Optimality-Theo}, an emergent view in concurrent cognitively oriented pragmatic modeling is that linguistic behavior is to be explained as \acro{real} behavior (\textbf{r}esource-\textbf{e}fficient, \textbf{a}pproximately optima\textbf{l}).
+The assumption of (approximate) optimality of behavior allows for functional explanations, focusing on the \emph{why} a particular behavior or general phenomenon is likely to be supported as a \emph{good} solution to a recurring communication problem \citep[e.g.,][]{NowakKrakauer1999:The-Evolution-o,Skyrms2010:Signals}.
+Resource-efficiency stresses that realizations of implementations of (approximately) optimal solutions may trade-in some ulterior success for easier representation or policy execution \citep[e.g.,][]{LiederGriffiths2019:Resource-ration,LaiGershman2024:Human-decision-}.
+
+The assumption that linguistic communication is based on \textbf{\real behavior} leads to naturally to a picture of pragmatic interpretation as a form of inverse, or abductive, reasoning \citep{HobbsStickel1993:Interpretation-,BuntBlack2000:Abduction-Belie,FrankeJager2015:Probabilistic-p}: since it is natural to assume that a speaker's linguistic behavior (their choice of words, the fact that they spoke in the first place, their intonation, or speech-accompanying gesture, etc.) is at least partly determined by a latent, i.e., unobservable, mental state of the speaker, the main task of pragmatic interpretation is to reason backwards, as it were, about how relatively likely or unlikely different conceivable causes of the speaker's behavior are.
+
+In keeping with the idea of (approximate) optimality of \real behavior, this type of abductive reasoning has a normatively compelling solution in Bayesian probabilistic inference.
+Given a probabilistic speaker policy $\pi(a \mid t)$, which specifies how likely a speaker is to perform an action $a \in A$ when in state $t \in T$, together with a prior distribution over how likely different states $t$ are, the normatively correct way of updating these prior beliefs is given by Bayes' rule as follows:
 \begin{align}
     \label{eq:Bayes-rule-interpretation}
    P(t \mid a) = \frac{\pi(a \mid t) \ P(t)}{\sum_{t' \in T} \pi(a \mid t') \ P(t')}
 \end{align}
 
-To flesh out this basic—and, at least as a starting point, arguably natural—picture of interpretation with actual content, at least three things need to be specified: (i) the relevant set of states $T$; (ii) the relevant set of actions $A$; and (iii) the speaker's behavioral policy $\pi$.
+To add content to this basic—and, at least as a starting point, arguably natural—picture of interpretation, at least three things need to be specified: (i) the relevant set of states $T$; (ii) the relevant set of actions $A$; and (iii) the speaker's behavioral policy $\pi$.
 Consider, for instance, a standard case of referential communication.
 Here, the states $T$ could be taken to be the potential referents in the shared perceptual context between speaker and listener, while the actions $A$ could be a finite set of utterances or descriptions, identified, say, at the level of surface form, such as ``the blue triangle.''
 The speaker's policy $\pi$ could then be defined on the basis of standard assumptions about how speakers are expected to behave in situations of the relevant kind, for example, as envisaged by Grice's Maxims of Conversation \citep{Grice1975:Logic-and-Conve}.
