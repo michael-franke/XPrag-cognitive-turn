@@ -79,7 +79,9 @@ Section \mf{XYZ} then focuses on a high-level case study, namely probabilistic r
 \section{Probabilistic pragmatics}
 
 Notable early probabilistic approaches to pragmatics include pioneering work by \citet{Merin1994:Algebra-of-Elem,MerinInfoRelSocialDecisionmaking1999}, \citet{Zeevat2014:Language-Produc}, and \citet{Russell2012:Probabilistic-R}.
-A particularly prominent style of probabilistic modeling in pragmatics is the Rational Speech Act framework \citep{FrankGoodman2012:Predicting-Prag,ScontrasTessler2021:A-practical-int,Degen2023:The-Rational-Sp}, the basic set-up of which was anticipated in decision-theoretic work by Anton Benz \citep{BenzUtil&RelAns2005,BenzvanRooijOptimalAssertions2007}.
+A particularly prominent style of probabilistic modeling in pragmatics is the Rational Speech Act framework \citep{FrankGoodman2012:Predicting-Prag,ScontrasTessler2021:A-practical-int,Degen2023:The-Rational-Sp}, the basic set-up of which (as detailed below) was anticipated in decision-theoretic work by Anton Benz \citep{BenzUtil&RelAns2005,BenzvanRooijOptimalAssertions2007}.\footnote{
+  Earlier \citep[e.g.][]{KipperJameson1994:Semantics-and-P} and independent later work \citep[e.g.,][]{TellexKnepper2014:Asking-for-Help} also used the literal-interpretation $\rightarrow$ pragmatic speaker $\rightarrow$ Bayesian interpreter characteristic of (vanilla) RSA models.
+}
 Early contributions in the evolving RSA tradition looked at
 implicature \citep{BergenLevy2012:Thats-what-she-,GoodmanStuhlmuller2013:Knowledge-and-I},
 stylized reference games \citep{FrankGoodman2012:Predicting-Prag,DegenFranke2012:Optimal-Reasoni,DegenFranke2013:Cost-Based-Prag}
@@ -87,13 +89,13 @@ stylized reference games \citep{FrankGoodman2012:Predicting-Prag,DegenFranke2012
 the place of probabilistic notions in semantics and pragmatics in general \citep{GoodmanLassiter2014:Probabilistic-S}.
 
 What unites probabilistic approaches to pragmatics is a focus on explaining pragmatic phenomena in terms of what agents \emph{do} in linguistic communication.
-More concretely, following the general tenets of Gricean \citet{Grice1975:Logic-and-Conve} and Post-Gricean pragmatics \citep{SperberWilson1995:Relevance:-Comm,WilsonSperber2004:Relevance-Theor,BlutnerZeevat2004:Optimality-Theo}, an emergent view in concurrent cognitively oriented pragmatic modeling is that linguistic behavior is to be explained as \acro{real} behavior (\textbf{r}esource-\textbf{e}fficient, \textbf{a}pproximately optima\textbf{l}).
-The assumption of (approximate) optimality of behavior allows for functional explanations, focusing on the \emph{why} a particular behavior or general phenomenon is likely to be supported as a \emph{good} solution to a recurring communication problem \citep[e.g.,][]{NowakKrakauer1999:The-Evolution-o,Skyrms2010:Signals}.
+More concretely, following the general tenets of Gricean \citep{Grice1975:Logic-and-Conve} and Post-Gricean pragmatics \citep{SperberWilson1995:Relevance:-Comm,WilsonSperber2004:Relevance-Theor,BlutnerZeevat2004:Optimality-Theo}, an emergent view in concurrent cognitively oriented pragmatic modeling is that linguistic behavior is to be explained as \textbf{\acro{real} behavior} (\textbf{r}esource-\textbf{e}fficient, \textbf{a}pproximately optima\textbf{l}).
+The assumption of (approximate) optimality of behavior allows for functional-teleological explanations of \emph{why} a particular behavior or general phenomenon is likely to be supported as a \emph{good} solution to a recurring communication problem \citep[e.g.,][]{NowakKrakauer1999:The-Evolution-o,Skyrms2010:Signals}.
 Resource-efficiency stresses that realizations of implementations of (approximately) optimal solutions may trade-in some ulterior success for easier representation or policy execution \citep[e.g.,][]{LiederGriffiths2019:Resource-ration,LaiGershman2024:Human-decision-}.
 
-The assumption that linguistic communication is based on \textbf{\real behavior} leads to naturally to a picture of pragmatic interpretation as a form of inverse, or abductive, reasoning \citep{HobbsStickel1993:Interpretation-,BuntBlack2000:Abduction-Belie,FrankeJager2015:Probabilistic-p}: since it is natural to assume that a speaker's linguistic behavior (their choice of words, the fact that they spoke in the first place, their intonation, or speech-accompanying gesture, etc.) is at least partly determined by a latent, i.e., unobservable, mental state of the speaker, the main task of pragmatic interpretation is to reason backwards, as it were, about how relatively likely or unlikely different conceivable causes of the speaker's behavior are.
-
-In keeping with the idea of (approximate) optimality of \real behavior, this type of abductive reasoning has a normatively compelling solution in Bayesian probabilistic inference.
+The assumption that linguistic communication is based on \real behavior leads to a picture of pragmatic interpretation as a form of inverse, or abductive, reasoning \citep{HobbsStickel1993:Interpretation-,BuntBlack2000:Abduction-Belie,FrankeJager2015:Probabilistic-p}, implemented as Bayesian inference.
+Since it is natural to assume that a speaker's linguistic behavior (their choice of words, the fact that they spoke in the first place, their intonation, or speech-accompanying gesture, etc.) is at least partly determined by a latent, i.e., unobservable, mental state of the speaker, the main task of pragmatic interpretation is to reason backwards, as it were, and compare the relative likelihood (and prior plausibility) of different conceivable causes of the speaker's behavior.
+Bayesian probabilistic inference provide the normative framework for this kind of inverse reasoning.
 Given a probabilistic speaker policy $\pi(a \mid t)$, which specifies how likely a speaker is to perform an action $a \in A$ when in state $t \in T$, together with a prior distribution over how likely different states $t$ are, the normatively correct way of updating these prior beliefs is given by Bayes' rule as follows:
 \begin{align}
     \label{eq:Bayes-rule-interpretation}
@@ -101,10 +103,11 @@ Given a probabilistic speaker policy $\pi(a \mid t)$, which specifies how likely
 \end{align}
 
 To add content to this basic—and, at least as a starting point, arguably natural—picture of interpretation, at least three things need to be specified: (i) the relevant set of states $T$; (ii) the relevant set of actions $A$; and (iii) the speaker's behavioral policy $\pi$.
-Consider, for instance, a standard case of referential communication.
-Here, the states $T$ could be taken to be the potential referents in the shared perceptual context between speaker and listener, while the actions $A$ could be a finite set of utterances or descriptions, identified, say, at the level of surface form, such as ``the blue triangle.''
-The speaker's policy $\pi$ could then be defined on the basis of standard assumptions about how speakers are expected to behave in situations of the relevant kind, for example, as envisaged by Grice's Maxims of Conversation \citep{Grice1975:Logic-and-Conve}.
-In particular, for a simple case of referential communication, we might define a probabilistic policy in terms of a utility function that scores each action (utterance) $a$ in a given state $t$ based on $a$'s truth-value in $t$ (quality), the degree to which $a$ conveys information about $t$ as opposed to any other $t' \in T$ (informativity), and the cost $C(a)$ of performing $a$:
+This is best illustrated with a simple example of referential communication.
+The states $T$ are potential referents in a perceptual context shared between speaker and listener.
+The (linguistic) actions $A$ are a finite set of utterances or descriptions, identified, say, at the level of surface form, such as ``the blue triangle.''
+The speaker's policy $\pi$ can then be defined on the basis of standard assumptions about how speakers are expected to behave in situations of the relevant kind, for example, as envisaged by Grice's Maxims of Conversation \citep{Grice1975:Logic-and-Conve}.
+In particular, we can define a probabilistic policy in terms of a utility function that scores each action (utterance) $a$ in a given state $t$ based on $a$'s truth-value in $t$ (quality), the degree to which $a$ conveys information about $t$ as opposed to any other $t' \in T$ (informativity), and the cost $C(a)$ of performing $a$:
 \begin{align}
     \text{U}(a, t) = \text{Informativity}(a) + \text{Truth}(a,t) + \text{Cost}(a)
 \end{align}
@@ -113,24 +116,30 @@ The speaker's policy is then defined as (approximately) optimal behavior for thi
     \pi(a \mid t) = \frac{\expo \alpha \ U(a, t)}{\sum_{a' \in A} \expo \alpha \ U(a', t)}
 \end{align}
 
-The standard formulation of the RSA speaker policy, as given by \citet{FrankGoodman2012:Predicting-Prag} and much subsequent work, conforms to this general utility-optimization picture, but is usually stated in terms of a speaker optimizing their linguistic expressions relative to a literal listener.
-Since this literal listener is typically construed as a context-blind, unstrategic dummy, however, it is more useful to think of a probabilistic pragmatic model, more generally, as consisting of two components:
-\begin{itemize}
+The standard formulation of the RSA speaker policy, as given by \citet{FrankGoodman2012:Predicting-Prag} and much subsequent work, conforms to this general utility-optimization picture, but is usually stated in terms of a speaker optimizing their linguistic expressions relative to a literal listener, giving rise to the ``standard RSA reasoning sequence'' of iterated reasoning: \mf{maybe insert a figure with the standard RSA formulas and then two bubbles that just show speaker as ``satisfying some heuristics'' and listeners as ``approximately Bayes''}
+%
+\begin{exe}
+  \ex \label{bsp:RSA-sequence}
+  \textbf{standard RSA reasoning sequence}: \\
+  literal listener $\rightarrow$ pragmatic speaker \(\rightarrow\) pragmatic listener
+\end{exe}
+%
+Since this literal listener is typically construed as a context-blind, unstrategic dummy, however, it is also possible, if not  occasionally more useful (see Section~\ref{sec:towards-cogn-turn}), to think of a probabilistic pragmatic model, more generally, as consisting of just two components:
+\begin{enumerate}
   \item a speaker policy that seeks to approximate optimal behavior under some (numeric) utility defining ``efficient'' or ``successful'' communication; and
   \item a Bayesian listener, who inverts this speaker policy in order to infer likely explanations for the observed linguistic behavior.
-\end{itemize}
+\end{enumerate}
 
 Many interesting variations, extensions and applications of this general approach to probabilistic pragmatic modeling have been developed over the years.
-These often extend the factors that feed into the speaker's utility function, e.g., to include aspects such as politeness or social meaning \citep[e.g.][]{Burnett2019:Signalling-game,YoonTessler2020:Polite-Speech-E,CarcassiFranke2023:How-to-handle-t}, or other aspects such as argumentativity \citep{CarcassiWang2026:What-guides-utt}. \mf{insert more references}
-Another common extension is the inclusion of multiple latent variables for the listener to infer, each of which may shape the speaker's policy in different functional ways.
-Examples are the inclusion of a question under discussion \citep[][]{KaoWu2014:Nonliteral-Unde}, comparison classes \mf{refs}, and more \mf{insert more examples}.
+These often extend the factors that feed into the speaker's utility function, e.g., to include aspects such as politeness or social meaning \citep[e.g.][]{Burnett2019:Signalling-game,YoonTessler2020:Polite-Speech-E,CarcassiFranke2023:How-to-handle-t}. Another common extension is the inclusion of multiple latent variables for the listener to infer, each of which may shape the speaker's policy in different functional ways.
+Examples are the inclusion of a question under discussion \citep[][]{KaoWu2014:Nonliteral-Unde} or comparison classes \citep{GrafDegen2016:Animal-dog-or-d,TesslerTsvilodub2020:Informational-g,TesslerGoodman2022:Warm-for-Winter}.
 All of these mentioned works and many others tightly link up with experimental data, either for testing categorical hypotheses supported by particular models, or, more frequently, to assess the quantitative fit of one or several models.
 If done right, this can be one of the assets that probabilistic modeling approaches bring to experimental pragmatics, as argued more extensively in the next Section~\ref{sec:theory-driv-prob}.
 
-Some models and applications also explore, or even require, the higher-order iteration of speaker policies and listener interpretations \citep[e.g.][]{FrankeJager2014:Pragmatic-Back-,BergenLevy2014:Pragmatic-Reaso,Frank2016:Rational-speech}.
-The general idea is that a speaker may optimize their linguistic behavior to be informative (or otherwise optimized) for a specific listener interpretation behavior that itself is optimized to the speaker's production policy.
-It then becomes an empirical question how much social reasoning is routinely employed by language users in general, or how much iterated perspective-taking individual language users are capable of \mf{refs}.
-However, from a resource-rational perspective on efficient cognitive processing \citep{LiederGriffiths2019:Resource-ration}, we should expect to see meta-cognitive allocation of reasoning effort to be flexibly employed on-demand --- a perspective that will be centrally spelled out in Section~\ref{sec:towards-cogn-turn}.
+Some models and applications also explore, or even require, the higher-order iteration of speaker policies and listener interpretations \citep[e.g.][]{FrankeJager2014:Pragmatic-Back-,BergenLevy2014:Pragmatic-Reaso,Frank2016:Rational-speech}, i.e., an extension of the standard RSA reasoning sequence in (\ref{bsp:RSA-sequence}).
+The general idea is that a speaker may optimize their linguistic behavior to be informative (or otherwise optimized) for a specific listener interpretation behavior that itself is optimized to the speaker's production policy, and so on.
+It then becomes an empirical question how much iterated social reasoning is routinely employed by language users in general, or how much iterated perspective-taking individual language users are capable of \citep[e.g.,][]{FrankeDegen2015:Reasoning-in-Re}.
+However, from a resource-rational perspective on efficient cognitive processing \citep{LiederGriffiths2019:Resource-ration}, we should expect to see meta-cognitive allocation of reasoning effort to be flexibly employed on-demand --- a perspective that will be expanded on in Section~\ref{sec:towards-cogn-turn}.
 
 
 \bigskip
