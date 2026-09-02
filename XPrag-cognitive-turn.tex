@@ -24,8 +24,8 @@
 \newcommand{\real}{\acro{real}}
 
 \title{
-  The cognitive turn in experimental pragmatics: \\
-  Towards a computational cognitive science of communication
+  Probabilistic modeling \& experimental pragmatics \\
+  \large{Towards a computational cognitive science of communication}
   % \large {From common ground to heuristic predictions of the dynamics of resource-efficient minds}
 }
 \author{Michael Franke}
@@ -207,7 +207,7 @@ This joint-optimization picture has inspired analyses in terms of game-theoretic
 However, while these approaches can tell us which behavioral policies are jointly optimal, they do not give a processing-level account of how human cognition implements (or finds) these strategies.
 This criticism is reminiscent of the motivation behind \emph{relevance theory} \citep{SperberWilson1995:Relevance:-Comm,WilsonSperber2004:Relevance-Theor}, namely to embed a theory of pragmatic language use in the broader picture of human cognition and its evolution.
 Yet while I consider what relevance theory wanted to do (see pragmatics in a broader cognitive picture) to be right, I also side with those who see flaws in relevance theory’s realization of its ambitions \citep[e.g.,][]{GazdarGood1982:On-a-notion-of-,Levinson1989:A-Review-of-Rel}.
-However, using explicit probabilistic models as theory-informed statistical models, it is possible to develop a computational cognitive science of human linguistic computation, especially when integrating recent insights from cognitive neuroscience and tools from machine learning. \mf{make sure that neuroscience and ML actually make an appearance}
+However, using explicit probabilistic models as theory-informed statistical models, it is possible to develop a computational cognitive science of human linguistic computation, especially when integrating recent insights from cognitive neuroscience and tools from machine learning.
 
 Indeed, I argue that both game-theoretic and probabilistic pragmatics in the tradition of the RSA framework are explanatory as models of stylized communication, matching some general, essential properties of human linguistic communication at a general level or the specific requirements of carefully designed, artificial laboratory tasks.
 Nevertheless, they are misspecified as reasonable computational cognitive models of human pragmatic communication in naturally occurring (face-to-face, written ...) communication situations, because they start of from the wrong problem description, i.e., from a wrong model of what context-dependent linguistic communication requires human interlocutors to do, given the general make-up of human information processing.
@@ -218,9 +218,10 @@ However, in my view, the main difference between information-theoretic encoder-d
 Rather it is because human communication is based on inference in a massively uncertain, richly structured space, including other minds and their dynamics (as influenced by speech and other actions and events), and uncertainty about what knowledge to assume for context-enriched efficient information flow.
 Standard game-theoretic models like Lewisian signaling games \citep{Lewis_1969:Convention} or probabilistic models in the RSA framework also essentially only provide solutions for an encoding-decoding problem when they assume fixed sets of interpretation options, linguistic actions and possible reactions to them.
 This is because they do not factor in the problem that human cognition, outside of stylized laboratory experiments, must operate in an open-ended hypothesis space, which is a problem that language production itself must be catered to mitigate: if efficient language production is ``mind-anticipation'' then this must entail anticipating ``mind-dynamics'' in an open-ended world.
-In other words, future models of pragmatic reasoning should ideally stop being agnostic about the role of core cognitive processes for reasoning about shared or recruitable context information, such as attention, awareness, meta-cognition or memory.
-In sum, I argue that what is required for an explicit cognitive turn in modeling is to integrate probabilistic reasoning about what the relevant context is, including how other agents' representations of the context change dynamically based on linguistic behavior.
-\mf{maybe give outlook: motivate awareness, meta-cognition and memory, then gesture to how this could be included by taking neuroscience and ML onboard}
+In other words, future models of pragmatic reasoning should ideally stop being agnostic about the role of core cognitive processes for reasoning about shared, inaccessible, or recruitable context information, such as attention, awareness, and meta-cognition.\footnote{
+  Pragmatic reasoning must also be optimized to general properties of human memory, so that, e.g., speaker can include reminders and properly manage what's individually known, shared information, and what's new and important.
+  Common speech-practices are clearly attuned to these (temporal) properties of memory, attention and awareness: since people forget, we have practices of reminding and even joint reminiscing; since people are inattentive, we know that simple reminders work and are commonly recognized, as reflected, e.g., by the fact that “Thanks.” can be the right reaction to a question like “Did you call Jake?”
+}
 
 To illustrate the importance of reasoning about attention and awareness, consider an example of written communication as in the following stylized exchange:
 %
@@ -230,7 +231,10 @@ To illustrate the importance of reasoning about attention and awareness, conside
   Receiver (a German): Touché!
 \end{exe}
 %
-This is an example of a general and quite productive class of pragmatic inferences, which I here call \emph{strike-through implicature} \mf{TODO: check if literature on this phenomenon exists; maybe relevance theory on inferences from pretend errors}.
+This is an example of a general and quite productive class of pragmatic inferences, which I here call \emph{strike-through implicature}.\footnote{
+  Strike-through implicatures in written communication are likely a cousin to or a special case of apohasis.
+  As far as I can tell, neither strike-through implicatures nor other kinds of ``pretend-errors'' have been treated systematically in the pragmatic literature (possibly because they would require reasoning about attentional dynamics).
+}
 The writer chose to explicitly mark an expression as deleted or to be ignored, in full awareness that the reader will recognize that the speaker has thereby made the reader aware of the speaker's as-if initial consideration of the elided text.
 If we consider the standard picture of pragmatic reasoning about alternative utterances the speaker could have made, we could analyze the case as follows: an utterance of (\ref{bsp:strike-through-implicature}) with strike-through may signal that the speaker has considered both of the alternatives (\ref{bsp:strike-through-implicature-alt}) below, ended up preferring (\ref{bsp:strike-through-implicature-alt-elided}) but also wants the recipient to know that they have deliberately NOT chosen the alternative (\ref{bsp:strike-through-implicature-alt-full}).
 %
@@ -246,54 +250,51 @@ If we consider the standard picture of pragmatic reasoning about alternative utt
 %
 Most importantly here, \emph{if} the speaker had only written (\ref{bsp:strike-through-implicature-alt-elided}), the recipient would never even have considered that the speaker deliberately did NOT chose (\ref{bsp:strike-through-implicature-alt-full}).
 Much more could be said about strike-through implicatures and like-minded cases of pretend-errors in spoken language (think: ``Whoops!? Did I really just say that?''), but the key take-away for the present argument is, quite general and imprecisely stated, that pragmatic inferences draw on the complex, counterfactual dynamics of awareness and attention that speakers can anticipate and listeners can recover.
-Some work in formal semantics and pragmatics has explored effects of awareness or attention dynamics \mf{REFs} and while there are logical \mf{REFs} and game-theoretic \mf{REFs} frameworks for modeling reasoning about unawareness, a systematic treatment from the point of view of a cognitive model of attention dynamics in pragmatic communication is missing.
+Some work in formal semantics and pragmatics has explored effects of awareness or attention dynamics \citep[e.g.,][]{Jagerde-Jager2009:Attention-Aware,Kaufmann2009:Doch-Ja-Awarene,Crone2019:Assertions-of-C,Klecha2018:On-unidirection,Westera2022:Attentional-Pra} and while there are logical \citep[e.g.,][]{FaginHalpern_1988:BeliefAwareness,Halpern2001:Alternative-Sem,HeifetzMeier2006:Interactive-Una,HeifetzMeier2008:A-Canonical-Mod} and game-theoretic \citep[e.g.,][]{Feinberg2004:Subjective-Reas,HeifetzMeier2007:Unawareness-Bel,Franke2012:Pragmatic-Reaso} frameworks for modeling reasoning about unawareness, a systematic treatment from the point of view of a cognitive model of attention dynamics in pragmatic communication is missing.
 
-The next example tries to motivate the importance of considering a single agent's meta-cognitive processes that may steer the awareness dynamics dynamic perspectives in pragmatic reasoning.
+The next example tries to motivate the importance of considering meta-cognitive processes that may steer the awareness dynamics dynamic perspectives in pragmatic reasoning \citep[see][for like-minded explorations]{Allott2020:Metacognition-a}.
 \citet{CumminsFranke2021:Rational-interp} discuss the argumentative use of quantifying expressions based on selected cases of UK universities self-reporting on the results of the 2014 Research Excellence Framework (REF), an example of which is (\ref{bsp:Royal-Holloway}).
 \begin{exe}
   \ex \label{bsp:Royal-Holloway}
   Royal Holloway is within the top 25 per cent of United Kingdom universities for research rated ‘world-leading’ or ‘internationally excellent’.
 \end{exe}
 Pragmatic interpretation of this statement can vary in terms of awareness and depth of reasoning about the strategic context.
-For illustration, processing of (\ref{bsp:Royal-Holloway}) could process along a hierarchy of depth like this:
+For illustration, processing of (\ref{bsp:Royal-Holloway}) could proceed along a path of increasing effort of contextual reasoning like this:
 %
 \begin{exe}
   \ex \label{bsp:argumentative-depth}
   \begin{xlist}
-    \label{bsp:argumentative-depth-1}
     \ex take the statement to be a simple informative utterance about some aspect of Royal Holloway's REF results;
-    \label{bsp:argumentative-depth-2}
+    \label{bsp:argumentative-depth-1}
     \ex realize that this statement is likely intended as some kind of argument for \emph{something} (without knowing what);
-    \label{bsp:argumentative-depth-3}
+    \label{bsp:argumentative-depth-2}
     \ex take the statement to be an argument for some specific conclusion, such as the idea that Royal Holloway is a good university, according to the REF;
-    \label{bsp:argumentative-depth-4}
+    \label{bsp:argumentative-depth-3}
     \ex realize that the argument made is likely not particularly strong for that specific conclusion.
+    \label{bsp:argumentative-depth-4}
   \end{xlist}
 \end{exe}
 %
 Notice that interpretative depth, as suggested by (\ref{bsp:argumentative-depth}), does not amount to iterated social reasoning, but the degree to which the wider strategic context of utterance production is taken into account.
 Intuitively, reaching a certain reasoning level, e.g., up to (\ref{bsp:argumentative-depth-3}), may be effortless and automatic, while passing on to a deeper level of contextual reasoning, such as up to (\ref{bsp:argumentative-depth-4}), may require more controlled allocation of attentional resources.
 If that is so, then part of \real pragmatic reasoning consists in a (meta-cognitive) decision of whether a simpler reasoning level is good enough.
-As with other uncertain variable, to decide whether to update or change a context representations, agents would therefore need to track meta-cognitive confidence \citep{Fleming2024:Metacognition-a} in their present level of granularity in representing the relevant aspects of the context.
-Including uncertainty about context representations and the tracking of meta-cognitive confidence to exert cognitive control can be included in probabilistic pragmatics models, e.g., by including Bayesian meta-cognitive models \citep{FlemingDaw2017:Self-evaluation,SchulzFleming2023:Metacognitive-c} into the RSA modeling framework.
-The most important point, however, is that if aspects of meta-cognition matter for the pragmatic interpreter, then they also likely matter for language production, since ---in strategic context with a certain misalignment of interests--- speakers might then optimize their behavior (implicitly) towards not raising suspicion, i.e., anticipating how (Bayesian) confidence is calculated and optimizing production to minimize the listener's chance of becoming aware of particular features of the context.
+As with other uncertain variables, to decide whether to update or change a context representations, agents would therefore need to track meta-cognitive confidence \citep[e.g.,][]{Fleming2024:Metacognition-a} in their present level of granularity in representing the relevant aspects of the context.
+Uncertainty about context representations and the tracking of meta-cognitive confidence to exert cognitive control can, in principle, be included in probabilistic pragmatics models of the RSA variety, e.g., by including Bayesian meta-cognitive models \citep{FlemingDaw2017:Self-evaluation,SchulzFleming2023:Metacognitive-c}, even though experimental verification of the resulting models' predictions can be challenging (see below).
+The most important point, however, is that \emph{if} aspects of meta-cognition matter for the pragmatic interpreter, then they also likely matter for language production, since ---in strategic context with a certain misalignment of interests--- speakers might then optimize their behavior (implicitly) towards not raising suspicion, i.e., anticipating how (Bayesian) confidence is calculated and optimizing production to minimize the listener's chance of becoming aware of particular features of the context.
+So, including meta-cognitive revision of beliefs about the context-model likely also contributes to a better understanding of non-canonical (e.g., not fully cooperative) cases of language use.
 
+Further directions for a dedicated cognitive turn in modeling pragmatic reasoning include factors like learning and adaptation over the course of an experiment \citep[e.g.,][]{SchusterDegen2020:I-know-what-you} or with hierarchical generalization to a larger population \citep{HawkinsFranke2023:From-partners-t}.
+This is especially interesting also when integrated into a general framework for modeling learning and decision-making, like the ACT-R cognitive architecture \citep{Anderson1993:Rules-of-the-Mi,AndersonBothell2004:An-Integrated-T}, as in recent work by \citet{DuffMayn2026:The-Role-of-Rei}.
+A more thorough cognitive orientation of model-centric pragmatics also seems called for to deal with \real behavior in temporally extended communicative situations, such as the incremental choice of an utterance or multi-turn conversations.
+% referential communication
+For instance, recent models for the incremental production of referential expressions like ``the big blue box'' treat each modifier as a potentially individual choice point for the speaker, to be selected sequentially based on utilities that are dynamically updated after the incremental interpretation effects of a partial utterance have been taken into account \citep{Cohn-GordonGoodman2019:An-Incremental-,SchlotterbeckWang2023:An-incremental-}.
+The plea for more cognitive realism in probabilistic modeling, when applied to (especially: face-to-face) referential communication, leads directly to a view also advocated by \citet{Rubio-FernandezBerke2025:Tracking-minds-}, namely to explicitly attend to what the authors call ``social micro-processes,'' which are (very) \real solutions in the sense introduced and argued for here.
+% multi-turn dialogues
+As for more extended dialogue situations, some recent work has looked at question- and answer-selection \citep{HawkinsStuhlmuller2015:Why-do-you-ask-,HawkinsTsvilodub2025:Relevant-answer} or multi-turn conversations to coordinate on opinions \citep{AchimovaScontras2022:Learning-about-,AchimovaFranke2025:The-alignment-m}, and even extended dialogues \citep{DasDuff2026:Planning-Ahead-}.
+Yet, while illuminating pioneering work exists \citep[][]{Anderson2021:Tell-Me-Everyth,QingGoodman2016:A-Rational-Spee}, general, cognitively plausible models of \real pragmatic reasoning in longer conversations, especially when it comes to probabilistic reasoning about common ground, remain an exciting future challenge.
 
+\mf{more PRF}
 
-\begin{draftytext}
-  \begin{itemize}
-
-    \item
-    \textbf{TODO} transition into meta-cognition \& model revision. What could trigger an agent to ‘reason deeper’? Attention allocation based on meta-cognitive confidence → model revision triggered by accumulated intrinsic error signals.
-
-    \item
-    \textbf{TODO} optimal-rational analysis → which problem is solved with which ingredients? But acknowledge that the ingredients (cognitive make-up) define part of the problem and thus must be acknowledged in both problem+solution.
-
-    \item
-    \textbf{TODO} überleitung. The picture emerging from these cases: communicators may be variously aware or unaware of more or less possibly relevant features of the context (including alternative interpretations and utterances, strategic incentives and goals). Common speech-practices are clearly aware of these attentional and awareness dynamics: people forget, so we have practices of reminding and even joint reminiscing; people are inattentive, so we know that simple reminders work, e.g., we may accept “Thanks.” as the right reaction to a question like “Did you call Jake?”; and at a finer-grained temporal resolution, we may find how referential descriptions may be adapted during the search process to the shifting visual access of the searching listener \mf{REFs}; etc. … For that reason, I argue that a future computational cognitive science of communication (CCSC) needs to consider modeling that includes (at least basic principles) of the dynamics of attention, meta-cognition, and possibly the online temporal dynamics of language production and interpretation.
-
-  \end{itemize}
-\end{draftytext}
 
 \newpage
 
