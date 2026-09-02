@@ -149,20 +149,22 @@ However, from a resource-rational perspective on efficient cognitive processing 
 \section{Theory-driven probabilistic modeling}
 \label{sec:theory-driv-prob}
 
-A now-familiar starting point for any discussion of formal modeling is Box's dictum that all models are wrong, but some are useful \citep{Box1979:Robustness-in-t}.
+A now-familiar starting point for any discussion of formal modeling is George Box's dictum that all models are wrong, but some are useful \citep{Box1979:Robustness-in-t}.
 Yet acknowledging that no model can be strictly true does not mean that all models are wrong to the same degree.
-Following Isaac Asimov's (\citeyear{Asimov1988:The-Relativity-}) observation that wrongness itself admits of degrees—that the belief the Earth is a sphere is less wrong than the belief that it is flat, even though neither is exactly correct—we should prefer models that are less wrong over those that are more so.
+Following Isaac Asimov's observation that wrongness itself admits of degrees—that the belief the Earth is a sphere is less wrong than the belief that it is flat, even though neither is exactly correct—we should prefer models that are less wrong over those that are more so \citep{Asimov1988:The-Relativity-}.
 This raises the natural question of what makes such (less) wrong models useful in the first place.
 
 Just as the familiar principle ``garbage in, garbage out'' governs the relationship between data quality and the conclusions we can draw from it, an analogous principle governs models themselves: the more (reasonable) assumptions we build in, the more we can conclude from the data.
-Causal modeling offers a clear illustration of this logic—by committing to a set of reasonable structural assumptions about how variables relate to one another, we are able to extract substantive, interesting conclusions that would otherwise remain hidden in purely correlational analyses \citep{Pearl2009:Causal-inferenc}.
+Causal modeling in statistics offers a clear illustration of this logic \citep{Pearl2009:Causal-inferenc}:
+by committing to a set of reasonable structural assumptions about how variables relate to one another, we are able to extract substantive, interesting conclusions that would otherwise remain hidden in purely correlational analyses.
+Central to all of  this is the idea that every model encodes, implicitly or explicitly, a set of assumptions about the data-generating process.
+The richer and more explicit these assumptions are about the underlying process, the more information we are able to extract from the data itself, even though any conclusion must be interpreted as hedged ``on the assumption that the model is correct.''
+% In other words, the assumptions a model makes are not a liability to be minimized but a resource to be used purposefully: they determine how much of the structure latent in the data-generating process can be recovered, and thus how much genuine insight a cognitive model of language can ultimately offer.
 
-Central to this view is the idea that every model encodes, implicitly or explicitly, a set of assumptions about the data-generating process that produced the observations under study.
-The richer and more explicit these assumptions are about the underlying process, the more information we are able to extract from the data itself.
-In other words, the assumptions a model makes are not a liability to be minimized but a resource to be used purposefully: they determine how much of the structure latent in the data-generating process can be recovered, and thus how much genuine insight a cognitive model of language can ultimately offer.
-
-One example of latent-parameter inference through a well-reasoned model, which highlights the usefulness for probabilistic pragmatic models for the interpretation of experimental data, is \emph{latent semantic inference}.
-The vague quantifier \emph{many} can convey quite different absolute numbers in sentences like in  (\ref{bsp:many}), arguably because its denotation is sensitive to general expectations about the relevant quantities, such as the number of shoes owned, number of pages read.
+Probabilistic pragmatics model have been used, in this way, as statistical models to learn from data, which is likely one of the biggest conceptual contributions of modelling to experimental pragmatics.
+A prominent class of theory-driven modeling in pragmatics is \emph{latent semantic inference}.
+Arguably, semantic meanings are not directly observable but must be inferred from indirect evidence.
+For example, the vague quantifier \emph{many} can convey quite different absolute numbers in sentences like in  (\ref{bsp:many}), arguably because its denotation is sensitive to general expectations about the relevant quantities, such as the number of shoes owned, or number of pages read.
 %
 \begin{exe}
   \label{bsp:many}
@@ -170,23 +172,20 @@ The vague quantifier \emph{many} can convey quite different absolute numbers in 
   \ex Joe read many pages in his book last week.
 \end{exe}
 %
-\citet{FernandoKamp1996:Expecting-Many} hypothesized that, despite this context-dependence, there is still a stable semantic core meaning based on an absolute threshold on the cumulative distribution of the expectation about the relevant quantity.
-Without going into detail of this particular case study \citep{FrankeScholler2016:Semantic-values}, the general recipe for latent semantic inference through a pragmatics model is that we assume that there is a latent parameter $\theta$, which determines the semantic meaning of an expression, which in turn influences the speaker's inclination to respond in particular ways to tasks posed during a suitable experiment. \mf{insert picture}
-So, the speaker's behavior $\pi_{S}(a \mid \theta)$ in the experimental task should be conceived of as a function of that hidden semantic parameter.
-From the point of the view of the experimenter, we can then take the empirically observed data, use Bayes rule much like the pragmatic listener model does, and backwards-infer likely values of $\theta$ based on the experimental data.
-The more independent justification there is---from theoretical considerations or other experimental work---to assume that the functional form of the stipulated policy is (roughly) correct, the more we can use the model as a lens to learn about theoretically meaningful parameters.
+\citet{FernandoKamp1996:Expecting-Many} hypothesized that, despite this context-dependence, there is still a stable semantic core meaning based on an absolute threshold $\theta$ on the cumulative distribution of the expectation about the relevant quantity.
+So, once we know a person's or a population's expectation of ``shoes owned'' or ``books read last week,'' we may be able to infer the latent value $\theta$ that governs the use of \emph{many} from choice data or acceptability ratings \citep{FrankeScholler2016:Semantic-values,ReeseJasbi2026:Resolving-the-V}.
+In general, latent semantic inference uses data $D$ from an experiment to backwards infer latent parameters $\theta$ that influences the semantic meaning of an expression, via a likelihood function $P(D \mid \theta)$ which, in turn, is given by or built around a probabilistic speaker or listener model.
 
-This is the power that probabilistic pragmatic modeling can unfold if used as part of the data-analytical pipeline: a theoretically informed model can become the statistical model itself.
-Multiple models, differing in meaningful theoretical distinctions can then be stringently contrasted through statistical model comparison.
-Using this approach, \citet{Tielvan-TielFranke2021:Probabilistic-p} compared models of quantifier use to distinguish between a standard logical semantics based on thresholds \mf{ref} and a semantics in terms of distance to a prototype \mf{refs}, using a probabilistic pragmatic speaker policy based on informativity-sensitive utilities as a model of the data-generating process with latent parameters inferred for either thresholds or prototypes of quantifiers.
-Similar methods have been used in the domain of quantifiers \citep[][]{CarcassiSzymanik2021:An-alternatives,SortNoopTielvan-TielFranke2022:Meaning-and-use,TielFranke2026:Bespoke-Probabi},
-vague gradable adjectives
-\citet{Cremers2022:A-Rational-Spee} uses a complex RSA-style model for Bayesian parameter inference for vague gradable adjectives,
+The power that probabilistic pragmatic modeling can unfold if used as part of the data-analytical pipeline is not restricted to parameter inference.
+Once we acknowledge that a theoretically informed model can become the statistical model itself, multiple models, differing in meaningful theoretical distinctions can then be stringently contrasted through statistical model comparison.
+For example, \citet{Tielvan-TielFranke2021:Probabilistic-p} compared models of quantifier use to distinguish between a standard logical semantics based on thresholds \citep{BarwiseCooper1981:Generalized-Qua} and a semantics in terms of distance to a prototype \citep{McCloskeyGlucksberg1978:Natural-Categor}, using a probabilistic pragmatic speaker policy based on informativity-sensitive utilities as a model of the data-generating process with latent parameters inferred for either thresholds or prototypes of quantifiers.
+Similar methods have been used in the domain of quantifiers \citep[][]{CarcassiSzymanik2021:An-alternatives,ReeseJasbi2026:Resolving-the-V,TielFranke2026:Bespoke-Probabi},
+vague gradable adjectives or probability expressions \citet{Cremers2022:A-Rational-Spee,van-TielFranke2022:Meaning-and-use-probability},
 generics \citet{Tessler2019:The-Language-of},
-and general (syntactic) ambiguity \citep{FrankeBergen2020:Theory-driven-s},
+general (syntactic) ambiguity \citep{FrankeBergen2020:Theory-driven-s},
 different models of referential reasoning \citep{QingFranke2013:Variations-on-a,FrankeDegen2015:Reasoning-in-Re},
 or intensifiers \citep{SchollerFranke2017:Surprisingly:-M,Zhao2019:Interpreting-In}.
-\mf{more and better refs? Anton Benz, Zhao?}
+\mf{more and better refs? Anton Benz}
 
 \bigskip
 
@@ -203,34 +202,36 @@ or intensifiers \citep{SchollerFranke2017:Surprisingly:-M,Zhao2019:Interpreting-
 \section{Towards a computational cognitive science of communication}
 \label{sec:towards-cogn-turn}
 
-The blueprint for probabilistic pragmatics from Section §2 was, for the listener, Bayes rule to reverse-engineer the likely mental states that caused linguistic behavior, and, for the speaker, soft-max policy choice to optimize heuristics for ``good utterances in context.''
-This suggests that linguistic communication is a pair of, so to speak, mind-\emph{reconstruction} (listener) and mind-\emph{anticipation} (speaker), which is —ideally— jointly approximately optimal.
+The blueprint for probabilistic pragmatics in \mf{insert reference to figure or section} suggests that linguistic communication is a pair of, so to speak, mind-\emph{reconstruction} (listener) and mind-\emph{anticipation} (speaker), which is —ideally— jointly approximately optimal.
 This joint-optimization picture has inspired analyses in terms of game-theoretic solutions, e.g., variations on Nash equilibria \citep[e.g.,][]{Parikh1988:Language-and-st} or higher-order iterations of best responses \citep[e.g.][]{Pavan2013:Scalar-Implicat,Rothschild2011:Game-Theory-and,FrankeJager2014:Pragmatic-Back-}.
 However, while these approaches can tell us which behavioral policies are jointly optimal, they do not give a processing-level account of how human cognition implements (or finds) these strategies.
 This criticism is reminiscent of the motivation behind \emph{relevance theory} \citep{SperberWilson1995:Relevance:-Comm,WilsonSperber2004:Relevance-Theor}, namely to embed a theory of pragmatic language use in the broader picture of human cognition and its evolution.
 Yet while I consider what relevance theory wanted to do (see pragmatics in a broader cognitive picture) to be right, I also side with those who see flaws in relevance theory’s realization of its ambitions \citep[e.g.,][]{GazdarGood1982:On-a-notion-of-,Levinson1989:A-Review-of-Rel}.
-However, using explicit probabilistic models as theory-informed statistical models, it is possible to develop a computational cognitive science of human linguistic computation, especially when integrating recent insights and tools from cognitive neuroscience and machine learning.
+However, using explicit probabilistic models as theory-informed statistical models, it is possible to develop a computational cognitive science of human linguistic computation, especially when integrating recent insights from cognitive neuroscience and tools from machine learning. \mf{make sure that neuroscience and ML actually make an appearance}
 
-Indeed, I argue that both game-theoretic and probabilistic pragmatics in the tradition of the RSA framework are misspecified as reasonable computational cognitive models of human pragmatic communication because they start of from the wrong problem description, i.e., from a wrong model of what context-dependent linguistic communication requires human interlocutors to do, given the general make-up of human information processing.
-This, too, is parallel to early arguments proposed by relevance theory, namely that linguistic communication is not an information-theoretic encoding and decoding problem, but a genuinely \emph{inferential process}.
+Indeed, I argue that both game-theoretic and probabilistic pragmatics in the tradition of the RSA framework are explanatory as models of stylized communication, matching some general, essential properties of human linguistic communication at a general level or the specific requirements of carefully designed, artificial laboratory tasks.
+Nevertheless, they are misspecified as reasonable computational cognitive models of human pragmatic communication in naturally occurring (face-to-face, written ...) communication situations, because they start of from the wrong problem description, i.e., from a wrong model of what context-dependent linguistic communication requires human interlocutors to do, given the general make-up of human information processing.
+A goal for future expansions of probabilistic modeling in experimental pragmatics would therefore be to include reasoning about how interlocutors reason about others' dynamically-adaptive representations of the communicative situation itself; a form of probabilistic reasoning about context and common ground.
+
+This criticism has a, interesting but twisted parallel to early arguments proposed by relevance theory, namely that linguistic communication is not an information-theoretic encoding and decoding problem, but a genuinely \emph{inferential process}.
 However, in my view, the main difference between information-theoretic encoder-decoder architectures and human linguistic communication is not that the latter is inferential, while the former is not (information-theory also standardly uses Bayesian inference as the decoding strategy, just like probabilistic pragmatics does).
 Rather it is because human communication is based on inference in a massively uncertain, richly structured space, including other minds and their dynamics (as influenced by speech and other actions and events), and uncertainty about what knowledge to assume for context-enriched efficient information flow.
 Standard game-theoretic models like Lewisian signaling games \citep{Lewis_1969:Convention} or probabilistic models in the RSA framework also essentially only provide solutions for an encoding-decoding problem when they assume fixed sets of interpretation options, linguistic actions and possible reactions to them.
 This is because they do not factor in the problem that human cognition, outside of stylized laboratory experiments, must operate in an open-ended hypothesis space, which is a problem that language production itself must be catered to mitigate: if efficient language production is ``mind-anticipation'' then this must entail anticipating ``mind-dynamics'' in an open-ended world.
-In other words, future models of pragmatic reasoning should ideally stop being agnostic about the role of core cognitive processes for reasoning about shared or recruitable context information, such as awareness or memory.
-Instead, what is required is an explicit cognitive turn in modeling that integrates probabilistic reasoning about what the relevant context is, including the perspectives of other agents.
-\mf{jump to 'context' is too abrupt; maybe motivate 'awareness' and 'meta-cognition' more swiftly?}
+In other words, future models of pragmatic reasoning should ideally stop being agnostic about the role of core cognitive processes for reasoning about shared or recruitable context information, such as attention, awareness, meta-cognition or memory.
+In sum, I argue that what is required for an explicit cognitive turn in modeling is to integrate probabilistic reasoning about what the relevant context is, including how other agents' representations of the context change dynamically based on linguistic behavior.
+\mf{maybe give outlook: motivate awareness, meta-cognition and memory, then gesture to how this could be included by taking neuroscience and ML onboard}
 
-To illustrate the importance of reasoning about awareness and attention, consider an example of written communication as in the following stylized exchange:
+To illustrate the importance of reasoning about attention and awareness, consider an example of written communication as in the following stylized exchange:
 %
 \begin{exe}
   \ex \label{bsp:strike-through-implicature}
   Sender: If I were a \st{German} person who didn't like spicy food, I’d not go there.\\
-  Receiver (a German): Touché. But also: ouch!
+  Receiver (a German): Touché!
 \end{exe}
 %
 This is an example of a general and quite productive class of pragmatic inferences, which I here call \emph{strike-through implicature} \mf{TODO: check if literature on this phenomenon exists; maybe relevance theory on inferences from pretend errors}.
-The writer chose to write a passage and mark it as deleted or to be ignored, in full awareness that the reader will recognize that the speaker has thereby made the reader aware of the speaker's as-if initial consideration of the elided text.
+The writer chose to explicitly mark an expression as deleted or to be ignored, in full awareness that the reader will recognize that the speaker has thereby made the reader aware of the speaker's as-if initial consideration of the elided text.
 If we consider the standard picture of pragmatic reasoning about alternative utterances the speaker could have made, we could analyze the case as follows: an utterance of (\ref{bsp:strike-through-implicature}) with strike-through may signal that the speaker has considered both of the alternatives (\ref{bsp:strike-through-implicature-alt}) below, ended up preferring (\ref{bsp:strike-through-implicature-alt-elided}) but also wants the recipient to know that they have deliberately NOT chosen the alternative (\ref{bsp:strike-through-implicature-alt-full}).
 %
 \begin{exe}
@@ -243,24 +244,41 @@ If we consider the standard picture of pragmatic reasoning about alternative utt
   \end{xlist}
 \end{exe}
 %
-For current argumentative purposes, the important observation is that \emph{if} the speaker had only written (\ref{bsp:strike-throuh-implicature-alt-elided}), the recipient would never even have considered that the speaker deliberately did NOT chose (\ref{bsp:strike-throuh-implicature-alt-full}).
+Most importantly here, \emph{if} the speaker had only written (\ref{bsp:strike-through-implicature-alt-elided}), the recipient would never even have considered that the speaker deliberately did NOT chose (\ref{bsp:strike-through-implicature-alt-full}).
 Much more could be said about strike-through implicatures and like-minded cases of pretend-errors in spoken language (think: ``Whoops!? Did I really just say that?''), but the key take-away for the present argument is, quite general and imprecisely stated, that pragmatic inferences draw on the complex, counterfactual dynamics of awareness and attention that speakers can anticipate and listeners can recover.
 Some work in formal semantics and pragmatics has explored effects of awareness or attention dynamics \mf{REFs} and while there are logical \mf{REFs} and game-theoretic \mf{REFs} frameworks for modeling reasoning about unawareness, a systematic treatment from the point of view of a cognitive model of attention dynamics in pragmatic communication is missing.
 
-Here is a quite different example that serves as an additional motivation of the central inclusion of dynamic perspectives in pragmatic reasoning, but also motivates the importance of considering single-agent meta-cognitive processes that may steer the awareness dynamics.
-\citet{CumminsFranke2021:Rational-interp} discuss the argumentative use of quantifying expressions based on selected cases of UK universities self-reporting on the results of the 2014 Research Excellence Framework, an example of which is (\ref{bsp:Royal-Holloway})
+The next example tries to motivate the importance of considering a single agent's meta-cognitive processes that may steer the awareness dynamics dynamic perspectives in pragmatic reasoning.
+\citet{CumminsFranke2021:Rational-interp} discuss the argumentative use of quantifying expressions based on selected cases of UK universities self-reporting on the results of the 2014 Research Excellence Framework (REF), an example of which is (\ref{bsp:Royal-Holloway}).
 \begin{exe}
   \ex \label{bsp:Royal-Holloway}
   Royal Holloway is within the top 25 per cent of United Kingdom universities for research rated ‘world-leading’ or ‘internationally excellent’.
 \end{exe}
-When reading this statement, multiple layers of depth of pragmatic interpretation may be applied, where interpretative depth does not amount to iterated social reasoning, but the degree to which the wider strategic context of utterance production is taken into account.
-On a first, extremely superficial reading, the statement could be taken as just a random informative remark.
-With slightly more pragmatic awareness, so to speak, a reader may realize that this statement is likely intended as some kind of argument for \emph{something} in the sense that it provides suggestive evidence in favor of a particular view.
-It may then not take much to fill this \emph{something} with a contextually salient explanation of \emph{what} the statement is likely arguing for (in the case at hand, this would likely be that Royal Holloway is a good university, according to the REF 2014).
-So far, these layers may come easy and automatic, but with even more depth, a recipient may realize that the argument made is likely not particularly strong (e.g., because the top 25\% ranking is reported, apparently, only for a cherry-picked subset of criteria reported on in the REF 2014).
-Once more, it does not seem to be the case that these layered depths of pragmatic reasoning correspond to increasingly deeper nestings of iterate Theory-of-Mind like reasoning.
-Rather, they seem to relate to how much of the utterance-generating process the interpreter cares to or is able to attend to, which directly relates to notions like automatic vs.~controlled processes and executive functions in cognitive psychology.
-\mf{why just namedrop these here? spell out?}
+Pragmatic interpretation of this statement can vary in terms of awareness and depth of reasoning about the strategic context.
+For illustration, processing of (\ref{bsp:Royal-Holloway}) could process along a hierarchy of depth like this:
+%
+\begin{exe}
+  \ex \label{bsp:argumentative-depth}
+  \begin{xlist}
+    \label{bsp:argumentative-depth-1}
+    \ex take the statement to be a simple informative utterance about some aspect of Royal Holloway's REF results;
+    \label{bsp:argumentative-depth-2}
+    \ex realize that this statement is likely intended as some kind of argument for \emph{something} (without knowing what);
+    \label{bsp:argumentative-depth-3}
+    \ex take the statement to be an argument for some specific conclusion, such as the idea that Royal Holloway is a good university, according to the REF;
+    \label{bsp:argumentative-depth-4}
+    \ex realize that the argument made is likely not particularly strong for that specific conclusion.
+  \end{xlist}
+\end{exe}
+%
+Notice that interpretative depth, as suggested by (\ref{bsp:argumentative-depth}), does not amount to iterated social reasoning, but the degree to which the wider strategic context of utterance production is taken into account.
+Intuitively, reaching a certain reasoning level, e.g., up to (\ref{bsp:argumentative-depth-3}), may be effortless and automatic, while passing on to a deeper level of contextual reasoning, such as up to (\ref{bsp:argumentative-depth-4}), may require more controlled allocation of attentional resources.
+If that is so, then part of \real pragmatic reasoning consists in a (meta-cognitive) decision of whether a simpler reasoning level is good enough.
+As with other uncertain variable, to decide whether to update or change a context representations, agents would therefore need to track meta-cognitive confidence \citep{Fleming2024:Metacognition-a} in their present level of granularity in representing the relevant aspects of the context.
+Including uncertainty about context representations and the tracking of meta-cognitive confidence to exert cognitive control can be included in probabilistic pragmatics models, e.g., by including Bayesian meta-cognitive models \citep{FlemingDaw2017:Self-evaluation,SchulzFleming2023:Metacognitive-c} into the RSA modeling framework.
+The most important point, however, is that if aspects of meta-cognition matter for the pragmatic interpreter, then they also likely matter for language production, since ---in strategic context with a certain misalignment of interests--- speakers might then optimize their behavior (implicitly) towards not raising suspicion, i.e., anticipating how (Bayesian) confidence is calculated and optimizing production to minimize the listener's chance of becoming aware of particular features of the context.
+
+
 
 \begin{draftytext}
   \begin{itemize}
